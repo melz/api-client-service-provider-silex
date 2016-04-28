@@ -102,17 +102,25 @@ abstract class AbstractApiClient
 
     /**
      * Request
-     * 
+     *
      * @param string $http_method
      * @param string $endpoint
+     * @param \stdClass $data
      * @param array $params
      * @param array $headers
      * @return string
      * @throws \Exception
      */
-    public function request($http_method, $endpoint, array $params = [], array $headers = []){
+    public function request($http_method, $endpoint, \stdClass $data = null, array $params = [], array $headers = []){
         if(!in_array($http_method, ['GET', 'POST', 'PUT', 'DELETE'])){
             throw new \Exception("No valid http method!");
+        }
+
+        /**
+         * Data
+         */
+        if($data){
+            $data = json_encode((array)$data);
         }
 
         /**
@@ -121,7 +129,7 @@ abstract class AbstractApiClient
         $endpoint = $this->_generateEndpoint($endpoint, $params);
 
         /** @var Request $request */
-        $request = new Request($http_method, $this->base_url . '/' . $endpoint, $headers);
+        $request = new Request($http_method, $this->base_url . '/' . $endpoint, $headers, $data);
 
         /** @var Response $response */
         $response = $this->guzzle_client->send($request);
