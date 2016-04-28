@@ -134,6 +134,6 @@ abstract class AbstractApiClient
         /** @var Response $response */
         $response = $this->guzzle_client->send($request);
 
-        return $response->getBody()->getContents();
+        return json_decode($response->getBody()->getContents());
     }
 }
