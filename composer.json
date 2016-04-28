@@ -3,7 +3,7 @@
   "description": "A API-Client Service Provider for Silex and Cilex with Guzzle",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": ["php", "silex", "cilex", "guzzle", "config"],
   "homepage": "https://github.com/triadev/api-client-service-provider-silex",
   "authors": [
