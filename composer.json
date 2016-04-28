@@ -1,6 +1,6 @@
 {
   "name": "triadev/api-client-service-provider-silex",
-  "description": "A API-Client Service Provider for Silex and Cilex with Guzzle",
+  "description": "API-Client Service Provider for Silex and Cilex with Guzzle",
   "type": "library",
   "license": "MIT",
   "version": "1.0.1",
